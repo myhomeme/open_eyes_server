@@ -1,5 +1,6 @@
 package com.sitech.paas.common.exception;
 
+import cn.hutool.core.exceptions.ExceptionUtil;
 import com.sitech.paas.common.result.ResponseResult;
 import com.sitech.paas.common.result.ReturnCode;
 import lombok.extern.slf4j.Slf4j;
@@ -7,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+
+import java.util.Arrays;
 
 /**
  * 全局异常处理器
@@ -28,7 +31,7 @@ public class ResponseExceptionHandler {
     @ExceptionHandler(Exception.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public ResponseResult<String> exception(Exception e) {
-        log.error("全局异常信息 ex={}", e.getMessage(), e);
-        return ResponseResult.fail(ReturnCode.result500.getCode(), e.getMessage());
+        log.error("全局异常信息 ex={}", e.getMessage(),e);
+        return ResponseResult.fail(ReturnCode.result500.getCode(), ExceptionUtil.getMessage(e), ExceptionUtil.stacktraceToString(e));
     }
 }

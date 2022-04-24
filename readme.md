@@ -24,7 +24,33 @@ open_eyes告警系统2.0为全新的框架，原系统基础的是[ruoyi](http:/
 
 ## 3.1 统一响应
 
-RestControllerAdvice注解
+使用RestControllerAdvice和ResponseBodyAdvice接口实现所有controller的统一响应格式设置
+
+```java
+{
+    "code": 200,
+    "msg": "操作成功",
+    "data": "Hello World!",
+    "timestamp": 1650770553710
+}
+```
+
+使用注解SneakyThrows和注解ExceptionHandler处理全局的异常，指定返回的接口为响应头为500,将所有的catch部分的异常装成runtime exception抛出
+
+```java
+{
+    "code": 500,
+    "msg": "/ by zero",
+    "data": "java.lang.ArithmeticException: / by zero\r\n\tat com.sitech.paas.admin.web.controller.MyTestController.getException(MyTestController.java:27)\r\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\r\n\tat ...",
+    "timestamp": 1650783981148
+}
+```
+
+
+
+
+
+
 
 
 

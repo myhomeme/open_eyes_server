@@ -5,6 +5,7 @@ import lombok.Data;
 
 /**
  * 基础返回类，返回码遵循阿里错误列表
+ *
  * @author huangzb
  * @date 2022/4/22
  */
@@ -19,7 +20,7 @@ public class ResponseResult<T> {
     @ApiModelProperty(value = "响应时间", example = "1625736481648")
     private long timestamp;
 
-    public ResponseResult(){
+    public ResponseResult() {
         this.timestamp = System.currentTimeMillis();
     }
 
@@ -35,6 +36,23 @@ public class ResponseResult<T> {
         ResponseResult<T> resultData = new ResponseResult<>();
         resultData.setCode(code);
         resultData.setMsg(message);
+        return resultData;
+    }
+
+
+    /**
+     * 异常返回结果中加上堆栈信息打印
+     *
+     * @param code               返回码
+     * @param message            返回错误信息
+     * @param stackTraceElements 堆栈内容
+     * @return ResponseResult对象
+     */
+    public static <T> ResponseResult<T> fail(int code, String message, T stackTraceElements) {
+        ResponseResult<T> resultData = new ResponseResult<>();
+        resultData.setCode(code);
+        resultData.setMsg(message);
+        resultData.setData(stackTraceElements);
         return resultData;
     }
 }
