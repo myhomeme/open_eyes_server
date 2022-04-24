@@ -1,5 +1,6 @@
 package com.sitech.paas.admin.web.controller;
 
+import io.swagger.annotations.Api;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -10,6 +11,7 @@ import java.util.HashMap;
  * @author huangzb
  * @date 2022/4/24
  */
+@Api("测试controller")
 @RestController
 @RequestMapping("test")
 public class MyTestController {
