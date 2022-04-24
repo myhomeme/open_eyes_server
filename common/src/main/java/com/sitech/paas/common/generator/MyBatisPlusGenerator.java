@@ -1,4 +1,4 @@
-package com.sitech.common.generator;
+package com.sitech.paas.common.generator;
 
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;

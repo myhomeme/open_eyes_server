@@ -15,7 +15,11 @@
     <description>项目对外主体部分</description>
 
     <dependencies>
-
+        <dependency>
+            <groupId>com.sitech</groupId>
+            <artifactId>common</artifactId>
+            <version>2.0.0-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
     <build>
