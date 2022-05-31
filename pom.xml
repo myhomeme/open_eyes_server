@@ -29,6 +29,7 @@
         <oshi.version>6.1.5</oshi.version>
         <swagger.version>3.0.0</swagger.version>
         <hutool.version>5.7.22</hutool.version>
+        <poi.version>4.1.2</poi.version>
     </properties>
 
     <dependencies>
@@ -95,6 +96,12 @@
             <groupId>com.github.oshi</groupId>
             <artifactId>oshi-core</artifactId>
             <version>${oshi.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>${poi.version}</version>
         </dependency>
     </dependencies>
 
