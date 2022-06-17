@@ -53,6 +53,11 @@ public class MyTestController {
     }
 
 
+    /**
+     * 文件下载实例接口
+     * @param response 响应数据流
+     * @throws IOException 此类是由失败或中断的 I/O 操作产生的一般异常类
+     */
     @RequestMapping("download")
     public void myDownload(HttpServletResponse response) throws IOException {
         List<String> row1 = CollUtil.newArrayList("aa", "bb", "cc", "dd");
@@ -69,8 +74,8 @@ public class MyTestController {
         //response为HttpServletResponse对象
         response.setContentType("application/vnd.ms-excel;charset=utf-8");
         //test.xls是弹出下载对话框的文件名，不能为中文，中文请自行编码
-        response.setHeader("Content-Disposition","attachment;filename=test.xls");
-        ServletOutputStream out=response.getOutputStream();
+        response.setHeader("Content-Disposition", "attachment;filename=test.xls");
+        ServletOutputStream out = response.getOutputStream();
         writer.flush(out, true);
         // 关闭writer，释放内存
         writer.close();
