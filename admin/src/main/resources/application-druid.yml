@@ -6,8 +6,31 @@ spring:
     password: root123
     type: com.alibaba.druid.pool.DruidDataSource
 
+
     druid:
+      # 默认数据源，oe本地数据库
+      master:
+        url: jdbc:mysql://localhost:3306/bcoc?useUnicode=true&characterEncoding=utf8
+        username: root
+        password: root123
+      # esb日志库
+      esbLogDb:
+        driverClassName: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://172.18.231.40:8066/esb_jlyd?useUnicode=true&characterEncoding=utf8
+        username: esb_jlyd
+        password: esb_jlyd
+      # esb配置库
+      esbConfigDb:
+        driverClassName: oracle.jdbc.OracleDriver
+        url: jdbc:oracle:thin:@//172.18.238.234:1524/tthradb
+        username: esbdb
+        password: Paas#123
+
+
       #druid 数据源专有配置
+      # 开启druid监控页面
+      stat-view-servlet:
+        enabled: true
       # 初始化大小，最小，最大
       initialSize: 5
       minIdle: 5
